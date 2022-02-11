@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<div class="contact-section">
+    <div class="contact-info">
+        <div><i class="fa fa-phone"></i> +977-9821698107 </div>
+        <div><i class="fa fa-envelope"></i> contact@buttanepal.com </div>
+        <div><i class="fa fa-map-marker"></i> 44600, Kathmandu, Nepal </div>
+        <div><i class="fa fa-facebook"></i> Like us on Facebook </div>
+        <div><i class="fa fa-instagram"></i> Follow us on Instagram </div>
+        <div><i class="fa fa-comment"></i> Send us a message on Messenger </div>
+    </div>
+    <div class="contact-form">
+        <h2>SEND US A MESSAGE</h2>
+        <form class="contact" action="" method="post">
+            <input type="text" name="name" class="text-box" placeholder="Name" required>
+            <input type="text" name="subject" class="text-box" placeholder="Subject" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <input type="submit" name="submit" class="send-btn" value="Send">
+        </form>
+    </div>
+        
+        
+    </div>
+</div>
+{% endblock %}

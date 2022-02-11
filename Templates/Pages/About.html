@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<div class="bg-black">
+  <div class="max-w-full md:max-w-7xl m-auto section">
+    <div>
+      <p class="uppercase tracking-widest s-xl pb-2 text-sm">
+        Lets Plan the Adventure
+      </p>
+      <h1 class="text-3xl md:text-4xl font-bold uppercase underline tracking-wider">
+        Our Best Packages
+      </h1>
+      <div class='grid grid-rows-3 grid-cols-1 md:grid-rows-1 md:grid-cols-3 justify-center grid_container text-center'>
+        <div>
+          <div class='flex justify-center about_img_container'>
+            <img
+              src="https://instagram.fktm8-1.fna.fbcdn.net/v/t51.2885-15/e35/157033865_304042964638015_3583347053579196036_n.jpg?tp=1&_nc_ht=instagram.fktm8-1.fna.fbcdn.net&_nc_cat=107&_nc_ohc=jJ42SEr8vI0AX-rKDWs&oh=a96df05b605e7da049f859f06e67d940&oe=6076F145"
+              alt="" class='rounded-sm about_img'  />
+          </div>
+          <div class='flex flex-col justify-center items-center mt-5'>
+            <h1 class='font-bold text-4xl  tracking-widest uppercase'>Hricha <br> Maharjan</h1>
+            <h1 class='font-bold text-2xl text-purple-600 underline uppercase tracking-wider'>Founder and CEO</h1>
+          </div>
+          <div class='mt-4 text_mw'>
+            <p class='text-center text-md'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum recusandae
+              repellat corporis repellendus illum exercitationem dolorem id eveniet voluptatibus aspernatur?</p>
+          </div>
+          <div class='flex flex-row justify-around items-center my-4 icons-container'>
+            <a href="">
+              <i class='fa fa-facebook' style='font-size: 30px;'></i>
+            </a>
+            <a href="">
+              <i class='fa fa-linkedin' style='font-size: 30px;'></i>
+            </a>
+            <a href="">
+              <i class='fa fa-twitter' style='font-size: 30px;'></i>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class='flex justify-center about_img_container'>
+            <img
+              src="https://instagram.fktm8-1.fna.fbcdn.net/v/t51.2885-15/e35/122055862_205309164323539_4250698919302493356_n.jpg?tp=1&_nc_ht=instagram.fktm8-1.fna.fbcdn.net&_nc_cat=107&_nc_ohc=GoiZXvHtAwcAX81MCHs&oh=f280e506a0d3fdb17fd59d078433b31d&oe=607704E6"
+              alt="" class='rounded-sm about_img'  />
+          </div>
+          <div class='flex flex-col justify-center items-center mt-5'>
+            <h1 class='font-bold text-4xl  tracking-widest uppercase'>Pasa <br> Maharjan</h1>
+            <h1 class='font-bold text-2xl text-purple-600 underline uppercase tracking-wider'>Product designer</h1>
+          </div>
+          <div class='mt-4 text_mw'>
+            <p class='text-center'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum recusandae repellat
+              corporis repellendus illum exercitationem dolorem id eveniet voluptatibus aspernatur?</p>
+          </div>
+          <div class='flex flex-row justify-around items-center my-4 icons-container'>
+            <a href="">
+              <i class='fa fa-facebook' style='font-size: 30px;'></i>
+            </a>
+            <a href="">
+              <i class='fa fa-linkedin' style='font-size: 30px;'></i>
+            </a>
+            <a href="">
+              <i class='fa fa-twitter' style='font-size: 30px;'></i>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class='flex justify-center about_img_container'>
+            <img
+              src="https://instagram.fktm8-1.fna.fbcdn.net/v/t51.2885-15/e35/68696360_137581614136889_8001913972901924154_n.jpg?tp=1&_nc_ht=instagram.fktm8-1.fna.fbcdn.net&_nc_cat=105&_nc_ohc=AgSiKPXqI2AAX8Pn4Ie&oh=2b9b720ab7fab1d997184f181ecefaf9&oe=607328C5"
+              alt="" class='rounded-sm about_img'  />
+          </div>
+          <div class='flex flex-col justify-center items-center mt-5'>
+            <h1 class='font-bold text-4xl  tracking-widest uppercase'>Babe ❤️ <br> Maharjan</h1>
+            <h1 class='font-bold text-2xl text-purple-600 underline uppercase tracking-wider'>Lead Developer</h1>
+          </div>
+          <div class='mt-4 text_mw'>
+            <p class='text-center'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum recusandae repellat
+              corporis repellendus illum exercitationem dolorem id eveniet voluptatibus aspernatur?</p>
+          </div>
+          <div class='flex flex-row justify-around items-center my-4 max-w-4 m-auto icons-container'>
+            <a href="">
+              <i class='fa fa-facebook' style='font-size: 30px;'></i>
+            </a>
+            <a href="">
+              <i class='fa fa-linkedin' style='font-size: 30px;'></i>
+            </a>
+            <a href="">
+              <i class='fa fa-twitter' style='font-size: 30px;'></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+    <div class="max-w-full md:max-w-7xl m-auto justify-center " >
+      <p class="uppercase tracking-widest s-xl pb-2 text-sm">
+        Lets Plan the Adventure
+      </p>
+      <h1 class="text-3xl md:text-4xl font-bold uppercase underline tracking-wider">
+        Our Best Packages
+      </h1>
+        <form class="form" action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+          <div class="grid grid-rows-3 w-full grid-cols-1 md:grid-rows-1 md:grid-cols-3    " style="gap:100px;">
+
+            <div class="flex flex-col mt-5">
+              <div class=" m-5">
+                <label for="title">First Name</label>
+                <input type="text" class="w-full md:w-80 h-10 outline-none mt-2 mr-3 p-3"  name="title" aria-describedby="title" placeholder="Enter file title">
+              </div>
+              <div class=" m-5">
+                  <label for="file">Last Name</label>
+                  <input type="text" class="w-full md:w-80 h-10 outline-none mt-2 mr-3 p-3"  name="title" aria-describedby="title" placeholder="Enter file title">
+              </div>
+
+            </div>
+            <div class="flex flex-col  mt-5 ">
+              <div class=" m-5 px-8">
+                <label for="title">Subject</label>
+                <input type="text" class="w-full md:w-80 h-10 outline-none mt-2 mr-3 p-3"  name="title" aria-describedby="title" placeholder="Enter file title">
+              </div>
+              <div class=" m-5 px-8">
+                <label for="file">Message</label>
+                <textarea rows="4" class="mt-2" cols="42"></textarea>
+              </div>
+            </div>
+            <div><h1 class="font-semibold uppercase text-xl"><i class="fa fa-map-marker " aria-hidden="true" style="font-size:30px ; margin-right:10px;"></i>Kathmandu, Nepal</h1></div>
+          </div>
+
+            <button type="submit" class="text-gray-300 bg-purple-600 hover:text-white px-7 mx-5 py-3 rounded-md text-lg font-medium">Submit</button>
+        </form>
+
+    </div>
+
+
+
+
+</div>
+{% endblock %}

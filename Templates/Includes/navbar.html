@@ -1,0 +1,20 @@
+
+{% load static %}
+<div class="header">
+    <div class="container">
+        <div class="navbar fixed-top">
+            <div class="logo">
+                <a href="{% url 'home' %}"><img src="/static/img/1.png" width="125px"></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="">Products</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                    <li><a href="">Account</a></li>
+                </ul>
+            </nav>
+            <a href=""><i class="fa fa-shopping-cart fa-2x" style="color: black "></i></a>
+        </div>
+        
