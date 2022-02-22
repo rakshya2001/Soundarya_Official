@@ -2,26 +2,247 @@
 
 {% block content %}
 {% load static %}
-<div class="contact-section">
-    <div class="contact-info">
-        <div><i class="fa fa-phone"></i> +977-9821698107 </div>
-        <div><i class="fa fa-envelope"></i> contact@buttanepal.com </div>
-        <div><i class="fa fa-map-marker"></i> 44600, Kathmandu, Nepal </div>
-        <div><i class="fa fa-facebook"></i> Like us on Facebook </div>
-        <div><i class="fa fa-instagram"></i> Follow us on Instagram </div>
-        <div><i class="fa fa-comment"></i> Send us a message on Messenger </div>
-    </div>
-    <div class="contact-form">
-        <h2>SEND US A MESSAGE</h2>
-        <form class="contact" action="" method="post">
-            <input type="text" name="name" class="text-box" placeholder="Name" required>
-            <input type="text" name="subject" class="text-box" placeholder="Subject" required>
-            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-            <input type="submit" name="submit" class="send-btn" value="Send">
+
+<style>
+    .contact {
+        position: relative;
+        min-height: 100vh;
+        padding: 50px 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        /* background: url(/static/img/bg2.jpg); */
+        background-size: cover;
+    }
+
+    .contact .content {
+        max-width: 800px;
+        text-align: center;
+    }
+
+    .contact .content h2 {
+        font-size: 36px;
+        font-weight: 500;
+        color: #fff;
+    }
+
+    .contact .content p {
+        font-weight: 300;
+        color: #fff;
+    }
+
+    .container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+    }
+
+    .container .contactInfo {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container .contactInfo .box {
+        position: relative;
+        padding: 20px 0;
+        display: flex;
+    }
+
+    .container .contactInfo .box .icon {
+        min-width: 60px;
+        height: 60px;
+        background: blue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        font-size: 22px;
+    }
+
+    .container .contactInfo .box .text {
+        display: flex;
+        margin-left: 20px;
+        font-size: 16px;
+        color: red ;
+        flex-direction: column;
+        font-weight: 300;
+    }
+
+    .container .contactInfo .box .text h3 {
+        font-weight: 500;
+        color: #00bcd4;
+    }
+
+    .contactForm {
+        width: 40%;
+        padding: 40px;
+        background: #fff;
+    }
+
+    .contactForm h2 {
+        font-size: 30px;
+        color: #333;
+        font-weight: 500;
+    }
+
+    .contactForm .inputBox {
+        position: relative;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .contactForm .inputBox input,
+    .contactForm .inputBox textarea {
+        width: 100%;
+        padding: 5px 0;
+        font-size: 16px;
+        margin: 10px 0;
+        border: none;
+        border-bottom: 2px solid #333;
+        outline: none;
+    }
+
+    .contactForm .inputBox span {
+        position: absolute;
+        left: 0;
+        padding: 5px 0;
+        font-size: 16px;
+        margin: 10px 0;
+        pointer-events: none;
+        transition: 0.5s;
+        color: #666;
+    }
+
+    .contactForm .inputBox input:focus~span,
+    .contactForm .inputBox input:valid~span,
+    .contactForm .inputBox textarea:focus~span,
+    .contactForm .inputBox textarea:valid~span {
+        color: #e91e63;
+        font-size: 12px;
+        transform: translateY(-20px);
+
+    }
+
+    .contactForm .inputBox input[type="submit"] {
+        width: 100px;
+        background: #00bcd4;
+        color: #333;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        font-size: 18px;
+    }
+
+    @media (max-width: 991px) {
+        .contact {
+            padding: 50px;
+        }
+
+        .container {
+            flex-direction: column;
+        }
+    }
+</style>
+
+<body>
+
+    <!-- <section class="contact">
+        {% if message_name %}
+        <section class="finally">
+        <h2 style="text-align: center;">
+            Thanks {{ message_name}}!
+        </h2>
+    
+        <p style="text-align: center;">
+            we received your email and will respond shortly...
+        </p>
+        </section>
+    {% else %}
+        <div class="content">
+            <h2>Contact Us</h2>
+            <p>
+                Feel Free to contact Us. We will be always
+                there for you.
+            </p>
+        </div>
+        <div class="container">
+            <div class="contactInfo">
+                <div class="box">
+                    <div class="icon">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    </div>
+
+                   
+                    <div class="text">
+                        <h3> Address</h3>
+                        <p> 44600 Shantinagar Road <br> Kathmandu</p>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="icon">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+
+                    </div>
+                    <div class="text">
+                        <h3> Phone</h3>
+                        <p> 9846590233</p>
+                    </div>
+                </div>
+
+
+                <div class="box">
+                    <div class="icon">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+
+                    </div>
+                    <div class="text">
+                        <h3> Email</h3>
+                        <p> flowershop@gmail.com</p>
+                    </div>
+                </div>
+
+
+
+            </div> -->
+
+    <div class="contactForm">
+        <form method="POST" enctype="multipart/form-data" action="{% url 'contact' %}">
+            {% csrf_token %}
+            <h2>
+                Send Message
+            </h2>
+            <div class="inputBox">
+                <input style="color: black;" type="text" name="message_name" required="required">
+                <span> Full Name</span>
+            </div>
+
+            <div class="inputBox">
+                <input style="color: black;" type="text" name="message_email" required="required">
+                <span> Email</span>
+            </div>
+
+            <div class="inputBox">
+                <input style="color: black;" type="text" name="message" required="required">
+                <span> Your Message </span>
+            </div>
+
+            <div class="inputBox">
+                <input type="submit" name="" value="Send">
+            </div>
         </form>
+
     </div>
-        
-        
+
     </div>
-</div>
+
+
+    </section>
+</body>
+
+{% endif %}
 {% endblock %}

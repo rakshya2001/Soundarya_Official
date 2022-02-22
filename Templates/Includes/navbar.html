@@ -1,20 +1,36 @@
-
 {% load static %}
-<div class="header">
-    <div class="container">
-        <div class="navbar fixed-top">
-            <div class="logo">
-                <a href="{% url 'home' %}"><img src="/static/img/1.png" width="125px"></a>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="{% url 'home' %}">Home</a></li>
-                    <li><a href="">Products</a></li>
-                    <li><a href="{% url 'about' %}">About</a></li>
-                    <li><a href="{% url 'contact' %}">Contact Us</a></li>
-                    <li><a href="">Account</a></li>
-                </ul>
-            </nav>
-            <a href=""><i class="fa fa-shopping-cart fa-2x" style="color: black "></i></a>
-        </div>
-        
+<link rel="stylesheet" href="/Static/Css/style.css">
+<nav>
+  <input type="checkbox" id="check">
+  <label for="check" class="checkbtn">
+    <i class="fas fa-bars"></i>
+  </label>
+  <label class="logo">Soundarya_Official</label>
+  <ul>
+    <li><a href="{% url 'home' %}">Home</a></li>
+    <li><a href="{% url 'product' %}">Products</a></li>
+    <li><a href="{% url 'about' %}">About Us</a></li>
+    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+
+    {% if not request.user.is_authenticated %}
+
+    <li><a href="{% url 'login' %}"><i class="fa fa-user fa-2x"></i></a></li>
+
+    {% else %}
+
+    <li>
+      <a href="{% url 'cart' %}"><i class="fas fa-cart-arrow-down"></i></a>
+    </li>
+    <li>
+      <a href="javascript:{document.getElementById('logout').submit()}" style="text-decoration: none;"
+          class="sign-out"><i class="fa fa-sign-out"></i>Logout</a>
+        <form id="logout" action="{% url 'logout' %}" method="POST">
+          {% csrf_token %}
+          <input type="hidden">
+        </form>
+    </li>
+    {% endif %}
+
+    
+  </ul>
+</nav>

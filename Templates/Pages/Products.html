@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="small-container">
+    <h2 class="title">Our Inventory</h2>
+    <div class="row">
+        {% for p in products %}
+
+        <div class="col-4">
+            <img style="height: 250px; width: 250px;" src="{{ p.product_image.url }}">
+            <h4>{{ p.name }}</h4>
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-o"></i>
+            </div>
+            <p>{{ p.price }}</p>
+            <form action="{% url 'add-to-cart' p.id  %}" method="POST">
+                {% csrf_token %}
+                <center><button type="submit" style="background-color: coral;">Add to Cart</button></center>
+            </form>
+        </div>
+
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}

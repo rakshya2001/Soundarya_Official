@@ -1,0 +1,37 @@
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="container register-form">
+        <div class="form">
+            <div class="note">
+                <p>ADD PRODUCTS</p>
+            </div>
+            <div class="form-content">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">Product Name</label>
+                            <input id="name" type="text" class="form-control" name="name" required autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Product Description</label>
+                            <input id="description" type="text" class="form-control" name="description" required
+                                autofocus>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="price">Product Price</label>
+                            <input id="price" type="number" value="1" min="1" class="form-control" name="price" required
+                                autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label for="id_product_image">Product image:</label>
+                            <input type="file" name="product_image" accept="image/*" id="id_product_image">
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btnSubmit">ADD</button>
+            </div>
+        </div>
+    </div>
+</form>

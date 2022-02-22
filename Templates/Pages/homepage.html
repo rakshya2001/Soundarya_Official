@@ -2,51 +2,52 @@
 
 {% block content %}
 {% load static %}
-<div class="row">
-    <div class="col-2">
-        <h1>Get the skin you want to feel</h1>
-        <p>Cetaphil is a gentle skincare brand that has been recommended and trusted by doctors and
-            dermatologists for over 70 years,
-            and is used by millions with sensitive skin around the world to improve the resilience of their
-            skin.
-        </p>
-        <a href="" class="btn">Explore Now &#8594;</a>
+<div class="container mt-5">
+    <h1 style="color: black;" class="d-flex justify-content-center">Get the skin you want to feel</h1>
+    <div class="row">
+        <div class="col-2">
+            <p>Cetaphil is a gentle skincare brand that has been recommended and trusted by doctors and
+                dermatologists for over 70 years,
+                and is used by millions with sensitive skin around the world to improve the resilience of their
+                skin.
+            </p>
+            <a href="{% url 'product' %}" class="btn">Explore Now &#8594;</a>
+        </div>
+        <div class="col-2">
+            <img src="/static/img/Cetaphill.png">
+    
+        </div>
     </div>
-    <div class="col-2">
-        <img src="/static/img/Cetaphill.png">
+</div>
 
-    </div>
-</div>
-</div>
-</div>
 
 
 
 <!------- featured categories -------->
-
-<div class="categories">
-    <div class="small-container">
-        <div class="row">
-            <div class="col-3">
-                <img src="/static/img/CeraVe.png">
-            </div>
-            <div class="col-3">
-                <img src="/static/img/Cetaphill.png">
-            </div>
-            <div class="col-3">
-                <img src="/static/img/Fix.jpg">
-            </div>
+<div class="container">
+    <h1 class="d-flex justify-content-center" style="color: black;">What we Sell?</h1>
+    <div class="row">   
+        <div class="col-3">
+            <img style="height: 300px;" src="/static/img/CeraVe.png">
+        </div>
+        <div class="col-3">
+            <img style="height: 300px;" src="/static/img/Cetaphill.png">
+        </div>
+        <div class="col-3">
+            <img style="height: 300px;" src="/static/img/Fix.jpg">
         </div>
     </div>
-
+    
 </div>
+
 <!------- featured products -------->
-<div class="small-container">
+<div class="container">
     <h2 class="title">Featured Products</h2>
     <div class="row">
+        {% for p in products %}
         <div class="col-4">
-            <img src="/static/img/UV.jpg">
-            <h4>UV Doux Sunscreen</h4>
+            <img style="height: 250px; width: 250px;" src="{{ p.product_image.url }}">
+            <h4>{{ p.name }}</h4>
             <div class="rating">
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star"></i>
@@ -54,120 +55,42 @@
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star-o"></i>
             </div>
-            <p>Npr 1,350.00</p>
+            <p>{{ p.price }}</p>
+            <form action="{% url 'add-to-cart' p.id  %}" method="POST">
+                {% csrf_token %}
+                <center><button type="submit" style="background-color: coral;">Add to Cart</button></center>
+            </form>
         </div>
-        <div class="col-4">
-            <img src="/static/img/Fix.jpg">
-            <h4>FixDerma Moisturizing Lotion </h4>
-            <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-o"></i>
-            </div>
-            <p>Npr 328.00</p>
-        </div>
-        <div class="col-4">
-            <img src="/static/img/Cetaphill.png">
-            <h4>Cetaphill Moisturizing Lotion</h4>
-            <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-o"></i>
-            </div>
-            <p>Npr 2,700.00</p>
-        </div>
-        <div class="col-4">
-            <img src="/static/img/Kleida.jpg">
-            <h4>Skin Lightening Moisturizer</h4>
-            <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-o"></i>
-            </div>
-            <p>Npr 1,170.00</p>
-        </div>
-        <!-- <div class="col-4">
-    <img src="/Static/img/Vitamin.jpg">
-    <h4>The Ordinary Vitamin-C Serum</h4>
-    <div class="rating">
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star-half-o"></i>
-        <i class="fa fa-star-o"></i>
-    </div>
-    <p>Npr 2,100.00</p>
-</div>
-<div class="col-4">
-    <img src="/Static/img/CeraVe.png">
-    <h4>CeraVe Acne Control Cleanser</h4>
-    <div class="rating">
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star-half-o"></i>
-        <i class="fa fa-star-o"></i>
-    </div>
-    <p>Npr 3,000.00</p>
-</div>
-<div class="col-4">
-    <img src="/Static/img/Retnoil.jpg">
-    <h4>The Ordinary Vitamin-C Serum</h4>
-    <div class="rating">
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star-half-o"></i>
-    </div>
-    <p>Npr 1,850.00</p>
-</div>
-<div class="col-4">
-    <img src="images/La-sheild.png">
-    <h4>Anti-Tanning Sunscreen Gel</h4>
-    <div class="rating">
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star-half-o"></i>
-    </div>
-    <p>Npr 1,565.00</p>
-</div> -->
+        {% endfor %}
+
     </div>
 </div>
 <!---------Categoryyyy--------->
-<div class="step-container" style="background-color: #ffd6d6;">
+<section class="speciality" id="speciality">
+    <div class="step-container">
 
-    <h1 class="heading">How It <span>Works</span></h1>
+        <h1 class="heading">How It <span>Works</span></h1>
 
-    <section class="steps">
+        <section class="steps">
 
-        <div class="box">
-            <i class="fa fa-truck fa-2x"></i>
-            <h3>choose your favorite food</h3>
-        </div>
-        <div class="box">
-            <i class="fa fa-truck fa-2x"></i>
-            <h3>free and fast delivery</h3>
-        </div>
-        <div class="box">
-            <i class="fa fa-truck fa-2x"></i>
-            <h3>easy payments methods</h3>
-        </div>
-        <div class="box">
-            <i class="fa fa-truck fa-2x"></i>
-            <h3>and finally, enjoy your food</h3>
-        </div>
-    
-    </section>
-  </div>
+            <div class="box">
+                <img src="/static/img/step-1.jpg" alt="">
+                <h3>choose your favorite food</h3>
+            </div>
+            <div class="box">
+                <img src="/static/img/step-2.jpg" alt="">
+                <h3>free and fast delivery</h3>
+            </div>
+            <div class="box">
+                <img src="/static/img/step-3.jpg" alt="">
+                <h3>easy payments methods</h3>
+            </div>
+
+        </section>
+    </div>
+</section>
+
+
 
 <!---------Offer-->
 <div class="offer">
@@ -183,65 +106,11 @@
                     and is a non-sticky formula that reduces pigmentation, inflammation, and blemishes
                     with SPF 30 and pa ++++.</small>
 
-                <a href="" class="btn">Buy Now &#8594;</a>
+                <a href="{% url 'product' %}" class="btn">Buy Now &#8594;</a>
             </div>
         </div>
     </div>
 </div>
 
-<!-------Testimonials------>
 
-<div class="testimonial">
-    <div class="small-container">
-        <div class="row">
-            <div class="col-3">
-                <i class="fa fa-quote-left"></i>
-                <p>Always great and a pleasure to do business with this company. Serum is excellent.
-                    I have been using it for years.</p>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
-                </div>
-                <img src="/static/img/Subina.jpg">
-                <h3>Subina Khadka</h3>
-            </div>
-
-            <div class="col-3">
-                <i class="fa fa-quote-left"></i>
-                <p>The face wash arrived quickly, was well-packaged, and seems to work wonders.
-                    It doesn't leave my face feeling oily or stripped.
-                    Some face washes leave a weird residue behind but not this one! </p>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
-                </div>
-                <img src="/static/img/Tanuja.jpg">
-                <h3>Tanuja Bastola</h3>
-            </div>
-
-            <div class="col-3">
-                <i class="fa fa-quote-left"></i>
-                <p>Love the smell!! Fantastic products!
-                    Great present for my other half who loved them also, will definitely be buying again
-                    :-) love the little bag they come in with nice printed lining! Just fantastic! </p>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
-                </div>
-                <img src="/static/img/Sneha.jpg">
-                <h3>Sneha Dwariya</h3>
-            </div>
-
-        </div>
-    </div>
-</div>
 {% endblock %}
